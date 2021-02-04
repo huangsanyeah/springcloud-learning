@@ -6,7 +6,8 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: remoteaddr_route
-          uri: ${service-url.user-service}
+        - id: query_route
+          uri: ${service-url.user-service}/user/getByUsername
           predicates:
-            - RemoteAddr=192.168.6.107/24
+            - Query=username
+
